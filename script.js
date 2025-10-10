@@ -1,6 +1,6 @@
 const myLibrary = [];
 
-function Book(name, author, pages, read) {
+function Book(id, name, author, pages, read) {
   this.name = name;
   this.author = author;
   this.pages = pages;
@@ -18,7 +18,12 @@ function Book(name, author, pages, read) {
 // console.log(hailMary.info());
 // console.log(creativeAct.info());
 
-function addBookToLibrary() {}
+function addBookToLibrary(name, author, pages, read) {
+  let id = randomUUID();
+  let newBook = new Book(id, name, author, pages, read);
+
+  myLibrary.push(newBook);
+}
 
 const resetButton = document.querySelector("#resetbutton");
 const submitButton = document.querySelector("#submitbutton");
