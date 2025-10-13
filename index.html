@@ -8,32 +8,38 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <form action="#" method="post">
-      <div class="bookname">
-        <label for="name">Book Name:</label>
-        <input type="text" id="name" name="name" />
-      </div>
-      <div class="bookauthor">
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" />
-      </div>
-      <div class="bookpages">
-        <label for="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" />
-      </div>
-      <div class="bookread">
-        <label for="read">Read</label>
-        <input type="radio" id="read" name="isread" value="read" />
-      </div>
-      <div class="booknotread">
-        <label for="notread">Not Read</label>
-        <input type="radio" id="notread" name="isread" value="notread" />
-      </div>
-      <div class="endbuttons">
-        <button class="submitbutton" type="submit">Submit</button>
-        <button class="resetbutton" type="reset">Reset</button>
-      </div>
-    </form>
+    <dialog class="dialogform">
+      <form action="#" method="post">
+        <div class="bookname">
+          <label for="name">Book Name:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+        <div class="bookauthor">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" />
+        </div>
+        <div class="bookpages">
+          <label for="pages">Pages:</label>
+          <input type="number" id="pages" name="pages" />
+        </div>
+        <div class="bookread">
+          <label for="read">Read</label>
+          <input type="radio" id="read" name="isread" value="read" />
+        </div>
+        <div class="booknotread">
+          <label for="notread">Not Read</label>
+          <input type="radio" id="notread" name="isread" value="notread" />
+        </div>
+        <div class="endbuttons">
+          <button class="submitbutton" type="submit">Submit</button>
+          <button class="resetbutton" type="reset">Reset</button>
+          <button class="cancelbutton">Cancel</button>
+        </div>
+      </form>
+    </dialog>
     <div class="book"></div>
+    <div class="addingbook">
+      <button class="addbookbutton">Add a book!</button>
+    </div>
   </body>
 </html>
