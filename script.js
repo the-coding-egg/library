@@ -22,23 +22,24 @@ function addBookToLibrary(name, author, pages, read) {
 //add the books to the array
 addBookToLibrary("Moby Dick", "Herman Melville", 342, "Yes");
 addBookToLibrary("Project Hail Mary", "Andy Weir", 496, "Yes");
-addBookToLibrary("The Creative Act", "Rick Ruben", 300, "Yes");
+addBookToLibrary("The Creative Act", "Rick Ruben", 300, "No");
 
 // display the books in the console
 console.log(myLibrary);
 
 // display books onto pages
-// need to run a for loop and display each element in array
-for (let book of myLibrary) {
-  const bookSection = document.querySelector(".book");
+function displayBooks() {
+  for (let book of myLibrary) {
+    const bookSection = document.querySelector(".book");
 
-  const bookDisplay = document.createElement("div");
-  bookDisplay.classList.add("bookdisplay");
-  bookDisplay.textContent = book.info();
+    const bookDisplay = document.createElement("div");
+    bookDisplay.classList.add("bookdisplay");
+    bookDisplay.textContent = book.info();
 
-  console.log(book.name);
+    console.log(book.name);
 
-  bookSection.appendChild(bookDisplay);
+    bookSection.appendChild(bookDisplay);
+  }
 }
 
 // be able to create more books
@@ -48,11 +49,17 @@ const submitButton = document.querySelector(".submitbutton");
 submitButton.addEventListener("click", submitNewBook);
 
 function submitNewBook(event) {
-  const bookName = document.querySelector("#name");
-  const bookAuthor = document.querySelector("#author");
-  const bookPages = document.querySelector("#pages");
+  const bookName = document.querySelector("#name").value;
+  const bookAuthor = document.querySelector("#author").value;
+  const bookPages = Number(document.querySelector("#pages").value);
+  const bookRead = document.querySelector('input[name="isread"]:checked').value;
+
+  addBookToLibrary(bookName, bookAuthor, bookPages, bookRead);
   console.log("added book!");
-  addBookToLibrary(bookName, bookAuthor, bookPages, "Yes");
+
+  console.log(myLibrary);
+
+  displayBooks();
   event.preventDefault();
 }
 
@@ -65,5 +72,5 @@ formButton.addEventListener("click", () => {
 });
 
 cancelButton.addEventListener("click", () => {
-  dialog.close();
+  dialogForm.close();
 });
