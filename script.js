@@ -40,14 +40,21 @@ function displayBooks() {
     deleteBook.classList.add("deletebook");
     deleteBook.textContent = "Delete";
 
-    console.log(book.name);
-
     deleteBook.addEventListener("click", () => {
       bookDisplay.remove();
     });
 
+    const changeReadStatus = document.createElement("button");
+    changeReadStatus.classList.add("change-status");
+    changeReadStatus.textContent = "Read Status";
+
+    changeReadStatus.addEventListener("click", () => {
+      //figure out how to change the read status by modifying the read protoype somehow
+    });
+
     bookSection.appendChild(bookDisplay);
     bookDisplay.appendChild(deleteBook);
+    bookDisplay.appendChild(changeReadStatus);
   }
 }
 
