@@ -5,10 +5,18 @@ function Book(id, name, author, pages, read) {
   this.name = name;
   this.author = author;
   this.pages = pages;
-  this.read = read;
+
+  let isRead = String(read) === "Yes";
+  this.read = function () {
+    return isRead ? "Yes" : "No";
+  };
+
+  this.toggleRead = function () {
+    isRead = !isRead;
+  };
 
   this.info = function () {
-    return `Name: ${this.name}\nAuthor: ${this.author}\nPages: ${this.pages}\nRead?: ${this.read}`;
+    return `Name: ${this.name}\nAuthor: ${this.author}\nPages: ${this.pages}\nRead?: ${this.read()}`;
   };
 }
 
@@ -31,6 +39,7 @@ const bookSection = document.querySelector(".book");
 
 // display books onto pages
 function displayBooks() {
+  bookSection.innerText = "";
   for (let book of myLibrary) {
     const bookDisplay = document.createElement("div");
     bookDisplay.classList.add("bookdisplay");
@@ -49,7 +58,8 @@ function displayBooks() {
     changeReadStatus.textContent = "Read Status";
 
     changeReadStatus.addEventListener("click", () => {
-      //figure out how to change the read status by modifying the read protoype somehow
+      book.toggleRead();
+      displayBooks();
     });
 
     bookSection.appendChild(bookDisplay);
@@ -91,6 +101,7 @@ function submitNewBook(event) {
   displayBooks();
 }
 
+// create the dialog box and be able to close it
 const dialogForm = document.querySelector(".dialogform");
 const formButton = document.querySelector(".addbookbutton");
 const cancelButton = document.querySelector(".cancelbutton");
