@@ -50,7 +50,9 @@ function displayBooks() {
     deleteBook.textContent = "Delete";
 
     deleteBook.addEventListener("click", () => {
+      let deletedBook = myLibrary.filter((b) => b.id !== book.id);
       bookDisplay.remove();
+      console.log(deletedBook);
     });
 
     const changeReadStatus = document.createElement("button");
@@ -59,12 +61,15 @@ function displayBooks() {
 
     changeReadStatus.addEventListener("click", () => {
       book.toggleRead();
-      displayBooks();
+      bookDisplay.textContent = book.info();
+
+      bookDisplay.appendChild(changeReadStatus);
+      bookDisplay.appendChild(deleteBook);
     });
 
     bookSection.appendChild(bookDisplay);
-    bookDisplay.appendChild(deleteBook);
     bookDisplay.appendChild(changeReadStatus);
+    bookDisplay.appendChild(deleteBook);
   }
 }
 

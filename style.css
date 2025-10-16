@@ -19,8 +19,10 @@
   background-color: grey;
   color: white;
   padding: 20px;
-  height: 100px;
+  height: 130px;
+  width: 180px;
   white-space: pre-line;
+  display: grid;
 }
 
 .book {
@@ -33,12 +35,5 @@
 }
 
 ::backdrop {
-  background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
-  opacity: 0.75;
+  backdrop-filter: blur(10px);
 }
