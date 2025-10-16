@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(id, name, author, pages, read) {
   this.id = id;
@@ -50,9 +50,11 @@ function displayBooks() {
     deleteBook.textContent = "Delete";
 
     deleteBook.addEventListener("click", () => {
-      let deletedBook = myLibrary.filter((b) => b.id !== book.id);
+      const index = myLibrary.findIndex((b) => b.id !== book.id);
+      if (index !== -1) {
+        myLibrary.splice(index, 1);
+      }
       bookDisplay.remove();
-      console.log(deletedBook);
     });
 
     const changeReadStatus = document.createElement("button");
@@ -84,6 +86,8 @@ submitButton.addEventListener("click", submitNewBook);
 
 function clearAllBooks() {
   bookSection.innerText = "";
+  myLibrary = [];
+  console.log(myLibrary);
 }
 
 function submitNewBook(event) {
@@ -102,7 +106,6 @@ function submitNewBook(event) {
 
   event.preventDefault();
 
-  clearAllBooks();
   displayBooks();
 }
 
