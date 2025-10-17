@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+    </style>
     <script src="script.js" defer></script>
   </head>
   <body>
+    <div class="libraryheader">
+      <p>Egg's Library</p>
+    </div>
     <dialog class="dialogform">
       <form id="bookform" action="#" method="post">
         <div class="bookname">
@@ -37,11 +43,13 @@
       </form>
     </dialog>
     <div class="book"></div>
-    <div class="addingbook">
-      <button class="addbookbutton">Add a book!</button>
-    </div>
-    <div class="clearallbooks">
-      <button class="clearallbutton">Clear All</button>
+    <div class="initialbuttons">
+      <div class="addingbook">
+        <button class="addbookbutton">Add a book!</button>
+      </div>
+      <div class="clearallbooks">
+        <button class="clearallbutton">Clear All</button>
+      </div>
     </div>
   </body>
 </html>
